@@ -31,24 +31,27 @@ for k in range(2, 20):
           round(calinski_harabasz_score(u, lab)),
           round(davies_bouldin_score(u, lab), 3))
 
-kmeans = KMeans(n_clusters=10,init="k-means++",random_state=42)
-tsne = TSNE(n_components=2,random_state=0)
+kmeans = KMeans(n_clusters=14,init="k-means++",random_state=42)
+tsne = TSNE(n_components=3,random_state=0)
 t = tsne.fit_predict(scores_pca)
 labels = kmeans.fit_predict(t)
 
 x = t[:,0]
 y = t[:,1]
+z = t[:,2]
 ts = pd.to_datetime(pd.Series(np.asarray(data["timestamps"]).reshape(-1)))
 y_true = (ts.dt.month.to_numpy() % 12) // 3
 
-plt.figure(figsize=(10, 8))
-plt.scatter(x, y, c=labels, cmap="Set2", s=2, alpha=0.5)
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x, y, z, c=labels, cmap="Set2", s=2, alpha=0.5)
 print("Silhouette Score: ", silhouette_score(t, labels))
 print("Adjusted Random Index: ", adjusted_rand_score(y_true,labels))
 print("Random Index: ", rand_score(y_true,labels))
-plt.title("KMeans with PCA + tSNE \nEstimated number of clusters: 14")
-plt.xlabel("Dim 1")
-plt.ylabel("Dim 2")
+ax.set_title("KMeans with PCA 3D + tSNE \nEstimated number of clusters: 14")
+ax.set_xlabel("Dim 1")
+ax.set_ylabel("Dim 2")
+ax.set_zlabel("Dim 3")
 plt.legend()
 plt.show()
 
