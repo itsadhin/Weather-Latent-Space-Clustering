@@ -7,6 +7,7 @@ Due to the large size doing PCA on it was not possible as the Covariance matrix 
 Since the aim of this project is to make a dictionary of the states fromm the clusters I need as many clusters as I can to account for each weather state. So I ran KMeans for different values of k and took the k that gave the highest Silhouette Score. I tried looking at both whittened and unscaled data. Scaling the data resulted in lower number of clusters giving a better score so I decided to go with Unscaled data.
 
 ![Silhouette Score 0.339](plots/kmeans_pca+uMap.png)
+![tsne](tsne.png)
 
 Its Visible from this the ring shape is showing seasonality over the span of 40 years and the points thats going upwards must be extreme weather conditions. So i decided to look at the power spectrum to see which components had the highest frequency and to remove them.
 
