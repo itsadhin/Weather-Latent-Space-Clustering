@@ -11,7 +11,10 @@ Since the aim of this project is to make a dictionary of the states fromm the cl
 Its Visible from this the ring shape is showing seasonality over the span of 40 years and the points thats going upwards must be extreme weather conditions. So i decided to look at the power spectrum to see which components had the highest frequency and to remove them.
 
 <img src="plots/psd.png" width="350"> <img src="plots/psd_removed.png" width="349">
+
 The components with the most power were removed and using the new values plots were made.
 After removal the scores went up to 0.3906 from 0.339 which is an increase of 0.0509.
 
-<img src="plots/kmeans_deseason.png" width="350" height="350">            
+<img src="plots/kmeans_deseason.png" width="350" height="350"> <img src="plots/hdbscan.png" width="350" height="350">
+
+Where as for HDBSCAN the score was 0.43845 (this score was calculated masking the noise in the data).           
