@@ -8,7 +8,7 @@ Since the aim of this project is to make a dictionary of the states fromm the cl
 
 ![Silhouette Score 0.339](plots/kmeans_pca+uMap.png)
 
-![tsne](tsne.png)
+![tsne](plots/tsne.png)
 
 Its Visible from this the ring shape is showing seasonality over the span of 40 years and the points thats going upwards must be extreme weather conditions. So i decided to look at the power spectrum to see which components had the highest frequency and to remove them.
 
