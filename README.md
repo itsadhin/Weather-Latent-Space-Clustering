@@ -12,11 +12,11 @@ Since the aim of this project is to make a dictionary of the states fromm the cl
 
 Its Visible from this the ring shape is showing seasonality over the span of 40 years and the points thats going upwards must be extreme weather conditions. So i decided to look at the power spectrum to see which components had the highest frequency and to remove them.
 
-![Power Spectrum](plots/psd.png)
+![Power Spectrum](plots/psd.png =250x)
 
 The components with the most power were removed and using the new values plots were made
 
-![After removal](plots/psd_removed.png)
+![After removal](plots/psd_removed.png =250x)
 
 After removal the scores went up to 0.3906 from 0.339 which is an increase of 0.0509.
 
