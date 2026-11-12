@@ -19,4 +19,4 @@ After removal the scores went up to 0.3906 from 0.339 which is an increase of 0.
 
 On trying the 1000 component data HDBSCAN showed huge improvement, it accounted for a score of 0.447 and about 2500 points were noise in this as per the paramater on which DBSCAN was done.
 
-<img src="plots/HDSCAN.png" width="350"> 
+<img src="plots/HDSCSAN.png" width="350"> 
