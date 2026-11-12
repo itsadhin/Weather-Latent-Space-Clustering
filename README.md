@@ -6,6 +6,8 @@ Due to the large size doing PCA on it was not possible as the Covariance matrix 
 
 Since the aim of this project is to make a dictionary of the states fromm the clusters I need as many clusters as I can to account for each weather state. So I ran KMeans for different values of k and took the k that gave the highest Silhouette Score. I tried looking at both whittened and unscaled data. Scaling the data resulted in lower number of clusters giving a better score so I decided to go with Unscaled data.
 
+The variance from PCA was vey low like 100 components only accounted for 20percentage of the variance.
+1000 components accounted for 50 percent variance. The initial plots were made from 100 components.
 <img src="plots/kmeans_pca+uMap.png" width="320" height="320"> <img src="plots/tsne.png" width="320" height="275">
 
 Its Visible from this the ring shape is showing seasonality over the span of 40 years and the points thats going upwards must be extreme weather conditions. So i decided to look at the power spectrum to see which components had the highest frequency and to remove them.
@@ -15,6 +17,6 @@ Its Visible from this the ring shape is showing seasonality over the span of 40 
 The components with the most power were removed and using the new values plots were made.
 After removal the scores went up to 0.3906 from 0.339 which is an increase of 0.0509.
 
-<img src="plots/kmeans_deseason.png" width="350" height="350"> <img src="plots/hdbscan.png" width="350" height="350">
+On trying the 1000 component data HDBSCAN showed huge improvement, it accounted for a score of 0.447 and about 2500 points were noise in this as per the paramater on which DBSCAN was done.
 
-Where as for HDBSCAN the score was 0.43845 (this score was calculated masking the noise in the data).           
+<img src="plots/HDSCAN.png" width="350"> 
